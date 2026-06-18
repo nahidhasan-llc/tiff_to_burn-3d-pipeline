@@ -1,0 +1,12 @@
+outputs/
+*.pth
+*.pt
+*.ckpt
+*.ply
+*.tif
+*.tiff
+*.obj
+*.stl
+.venv/
+seg_env/
+__pycache__/
