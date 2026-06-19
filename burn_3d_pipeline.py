@@ -38,9 +38,9 @@ from utils.writers    import write_ply, render_snapshot
 # ─────────────────────────────────────────────────────────────────────────────
 
 BURN_TINT      = np.array([220, 50,  50],  dtype=np.float32)  # red tint
-BOUNDARY_COLOR = np.array([0,   255, 255], dtype=np.uint8)    # cyan boundary
+BOUNDARY_COLOR = np.array([255,  255, 0], dtype=np.uint8)    # cyan boundary
 BLEND_ALPHA    = 0.5                                           # 50% skin + 50% tint
-BOUNDARY_WIDTH = 3                                             # px
+BOUNDARY_WIDTH = 1                                             # px
 SCAN_RE        = re.compile(
     r"^(?P<patient>pat\d+)day(?P<day>\d+)(?P<variant>[A-Z][A-Z0-9]?)$",
     re.IGNORECASE
@@ -214,7 +214,9 @@ def process_one_scan(range_path: Path, tif_path: Path, args):
         print(f"  [SAVE] Texture → {colored_path.name}")
 
     # Step 4+5
-    pcd = wrap_and_align(range_path, colored_img, fine_yaw=args.fine_yaw)
+    pcd = wrap_and_align(range_path, colored_img, fine_yaw=args.fine_yaw)       # Replace the original pixel color with red/yellow
+    # pcd = wrap_and_align(range_path, img_rgb, fine_yaw=args.fine_yaw)           # Have the original pixel color  
+
 
     # Save PLY + snapshot
     ply_path = output_dir / f"{scan_name}_burn3d.ply"

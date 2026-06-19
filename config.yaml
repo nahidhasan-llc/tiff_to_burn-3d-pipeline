@@ -31,7 +31,7 @@ sam2_repo:  "D:/NahidW/Coding/5.face_burn_segmentation/segment-anything-2"
 #  OUTPUT
 # ─────────────────────────────────────────────────────────────────────────────
 output:     "D:/NahidW/Dataset/3d_scans/burn_3d"
-threshold:  0.95      # burn/normal cutoff — only affects unetpp and segformer
+threshold:  0.85      # burn/normal cutoff — only affects unetpp and segformer
 fine_yaw:   0.0      # degrees — adjust if face isn't centered in the PLY
 save_mask:  true     # also save 2D mask + overlay + colored texture
 show:       false    # open Open3D 3D viewer after processing
