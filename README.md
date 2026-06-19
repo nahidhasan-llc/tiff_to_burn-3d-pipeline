@@ -129,7 +129,7 @@ D:/NahidW/Dataset/3d_scans/burn_3d/
 
 | Key | Default | Description |
 |-----|---------|-------------|
-| `threshold` | `0.5` | Burn/normal cutoff — only affects UNet++ and SegFormer |
+| `threshold` | `0.5` | Burn/normal cutoff  |
 | `fine_yaw` | `0.0` | Yaw correction in degrees if face isn't centered in the PLY |
 | `save_mask` | `false` | Also save 2D mask, overlay, and colored texture images |
 | `show` | `false` | Open Open3D 3D viewer after processing |
