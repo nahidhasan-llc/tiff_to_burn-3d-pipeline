@@ -1,9 +1,22 @@
 # ─────────────────────────────────────────────────────────────────────────────
-#  INPUT
+#  INPUT  —  uncomment ONE mode, comment the rest
 # ─────────────────────────────────────────────────────────────────────────────
-# range:  "D:/NahidW/Dataset/pat1/pat1day0C/pat1day0C"
-# tif:    "D:/NahidW/Dataset/pat1/pat1day0C/pat1day0C.tif"
-dataset: "D:/NahidW/Dataset"
+
+# ── Batch mode (all patients / all timepoints) ────────────────────────────────
+# dataset: "D:/NahidW/Dataset/face_burn_dataset"
+
+# ── Batch mode (one patient only) ────────────────────────────────────────────
+# dataset:   "D:/NahidW/Dataset/face_burn_dataset"
+# patient:   "PAT01"
+
+# ── Batch mode (one patient, one timepoint) ───────────────────────────────────
+# dataset:    "D:/NahidW/Dataset/face_burn_dataset"
+# patient:    "PAT01"
+# timepoint:  "D00"
+
+# ── Single scan subfolder ─────────────────────────────────────────────────────
+# scandir: "D:/NahidW/Dataset/face_burn_dataset/PAT01/D00/PAT01_D00_A"
+
 # ─────────────────────────────────────────────────────────────────────────────
 #  MODEL — uncomment ONE block, comment the rest
 # ─────────────────────────────────────────────────────────────────────────────
@@ -30,12 +43,9 @@ sam2_repo:  "D:/NahidW/Coding/5.face_burn_segmentation/segment-anything-2"
 # ─────────────────────────────────────────────────────────────────────────────
 #  OUTPUT
 # ─────────────────────────────────────────────────────────────────────────────
-output:     "D:/NahidW/Dataset/3d_scans/burn_3d"
-threshold:  0.85      # burn/normal cutoff — only affects unetpp and segformer
-fine_yaw:   0.0      # degrees — adjust if face isn't centered in the PLY
-save_mask:  true     # also save 2D mask + overlay + colored texture
-show:       false    # open Open3D 3D viewer after processing
+threshold:  0.80      # burn/normal cutoff — only affects unetpp and segformer
+fine_yaw:   0.0       # degrees — adjust if face isn't centred in the PLY
+save_mask:  true      # also save 2D binary mask PNG
+show:       false     # open Open3D 3D viewer after processing
 
-
-
-# THRESHOLD: Sam2 = 0.65, MedSam = 0.55, Unet++ = 0.6, SegFormer = 0.7
+# THRESHOLD GUIDE: SAM2=0.65  MedSAM=0.55  UNet++=0.6  SegFormer=0.7
